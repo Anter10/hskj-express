@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<!-- START SNIPPET: xworkSample -->
+<struts>
+
+  
+    <package name="default" extends="struts-default">
+        <interceptors>
+            <interceptor-stack name="crudStack">
+                 <interceptor-ref name="defaultStack" />
+            </interceptor-stack>
+        </interceptors>
+        
+        <!-- 通过手机号登陆 -->
+        <action name="postlogin" class ="hskj.express.client.logic.CodeLoginAction">
+            <result name="ERROR">/error.jsp</result>
+            <result name="SUCCESS">express_mobile_client/loginserver.jsp</result>
+        </action> 
+        
+        <!-- 通过邮箱 或者手机号得到验证码 -->
+        <action name="getcode" class="hskj.express.client.logic.SendCodeAction">
+                <result name="PHONE">express_mobile_client/sendphonecodeserver.jsp</result>
+                <result name="EMAIL">express_mobile_client/sendemailcodeserver.jsp</result>
+                <result name="NPE">express_mobile_client/phoneoremailisnotvail.jsp</result>
+                <result name="PEEMPTY">express_mobile_client/phoneoremailisempty.jsp</result>
+        </action>
+        
+        <!-- 请求APP显示数据 -->
+        <action name="getappshow" class="hskj.express.client.logic.ShowAppDics">
+                <result name="OK">express_mobile_client/showapps.jsp</result>
+                <result name="CANCEL">express_mobile_client/csme.jsp</result>
+        </action>
+        
+        <!-- 修改用户信息 -->
+        <action name="changepersonmessage" class="hskj.express.client.logic.ChangePersonMessageAction">
+                <result name="OK">express_mobile_client/changepersonserver.jsp</result>
+                <result name="CANCEL">express_mobile_client/csme.jsp</result>
+        </action>
+        
+        
+    </package>
+ 
+
+</struts>
+
+<!-- END SNIPPET: xworkSample -->
+
