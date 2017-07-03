@@ -14,12 +14,7 @@
                  <interceptor-ref name="defaultStack" />
             </interceptor-stack>
         </interceptors>
-        
-        <!-- 通过手机号登陆 -->
-        <action name="postlogin" class ="hskj.express.client.logic.CodeLoginAction">
-            <result name="ERROR">/error.jsp</result>
-            <result name="SUCCESS">express_mobile_client/loginserver.jsp</result>
-        </action> 
+       
         
         <!-- 通过邮箱 或者手机号得到验证码 -->
         <action name="getcode" class="hskj.express.client.logic.SendCodeAction">
@@ -39,6 +34,12 @@
         <action name="changepersonmessage" class="hskj.express.client.logic.ChangePersonMessageAction">
                 <result name="OK">express_mobile_client/changepersonserver.jsp</result>
                 <result name="CANCEL">express_mobile_client/csme.jsp</result>
+        </action>
+        
+        <!-- 验证验证码是否正确 -->
+         <action name="vailphoneoremailcode" class="hskj.express.client.logic.VerailCodeAction">
+                <result name="OK">express_mobile_client/veriphoneoremailandcodetypeserver.jsp</result>
+                <result name="CANCEL">express_mobile_client/error.jsp</result>
         </action>
         
         

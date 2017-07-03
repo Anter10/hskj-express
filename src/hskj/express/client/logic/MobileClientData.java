@@ -1,20 +1,61 @@
 package hskj.express.client.logic;
 
 public class MobileClientData {
-
+    
+	
+//	验证码类型
+	public static enum PhoneEmailCodeType {
+	    LoginCode("登陆验证码","101"),
+	    PhoneRegister("手机号注册验证码","102"),
+    	ChangePassword("修改密码验证码","103");
+    	
+    	 
+    	 private String codename = "";
+    	 private String codetype = "";
+    	 
+    	private PhoneEmailCodeType(String codename, String codetype){
+            this.codename = codename;
+            this.codetype = codetype;
+    	}
+		public String getCodename() {
+			return codename;
+		}
+		public void setCodename(String codename) {
+			this.codename = codename;
+		}
+		public String getCodetype() {
+			return codetype;
+		}
+		public void setCodetype(String codetype) {
+			this.codetype = codetype;
+		}
+	}	
 
 // 寄件类型
 public static enum SendItemType{
-    
-
-
-    private String sendtype = "";
+    ClothType("","");
+	
+	private String sendtype = "";
 	private String sendinfo = "";
+	
 	SendItemType(String _sendtype, String _sendinfo){
          sendtype = _sendtype;
          sendinfo = _sendinfo;
 	}
-
+	public String getSendtype() {
+		return sendtype;
+	}
+	public void setSendtype(String sendtype) {
+		this.sendtype = sendtype;
+	}
+	public String getSendinfo() {
+		return sendinfo;
+	}
+	public void setSendinfo(String sendinfo) {
+		this.sendinfo = sendinfo;
+	}
+   
+	
 
 }
 
