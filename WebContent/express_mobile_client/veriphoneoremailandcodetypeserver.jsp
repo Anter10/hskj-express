@@ -48,14 +48,17 @@
 		    	 /* 判断验证码是否正确 */
 		    	 /* 你输入的账号或者验证码不正确 */
 		    	 if(willselect == null){
-		    		System.out.print("手机号或者邮箱或者验证码错误");
+		    		System.out.print("手机号或者邮箱或者验证码错误"+willselect);
 		    	 /* 正确 */
 		    	 }else{
 		    	 
 		    	  String updatesql = "update user_use_code set hasvail = 1 where phoneoremail= " + phoneoreamil +" and codetype = "+ codetype + " and code = " + code + " and hasvail = 0";
-		    	  Param.sendPhone(phoneoreamil, "成功", code);
+		    	  /* Param.sendPhone(phoneoreamil, "成功", code); */
 		    	  boolean update = DealDatabase.executeSQL(updatesql);
-		    	  System.out.print("手机号注册成功");
+		    	  String selectsql = "select * from express_action_result_data where id = 101";
+		    	  String obj = DealDatabase.getQuerryJsonStringData(selectsql);
+		    	  Param.sendData(obj, response.getWriter());
+		    	   
 		    	 }
 		     }
 		  }else if(isemail == true){

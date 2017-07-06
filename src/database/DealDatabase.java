@@ -213,7 +213,7 @@ public class DealDatabase {
        }
        int tindex = 0;
  
-       String str = sendobj.toString();
+       String str = ta.toString();
        
 
   	   return str;

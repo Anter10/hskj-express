@@ -7,13 +7,15 @@
 <!-- START SNIPPET: xworkSample -->
 <struts>
 
-  
+    <constant name ="struts.devMode" value="false" />
+    
     <package name="default" extends="struts-default">
         <interceptors>
             <interceptor-stack name="crudStack">
                  <interceptor-ref name="defaultStack" />
             </interceptor-stack>
         </interceptors>
+       
        
         
         <!-- 通过邮箱 或者手机号得到验证码 -->
@@ -32,8 +34,8 @@
         
         <!-- 修改用户信息 -->
         <action name="changepersonmessage" class="hskj.express.client.logic.ChangePersonMessageAction">
-                <result name="OK">express_mobile_client/changepersonserver.jsp</result>
-                <result name="CANCEL">express_mobile_client/csme.jsp</result>
+                <result name="SUCCESS">express_mobile_client/changepersonserver.jsp</result>
+                <result name="ERROR">express_mobile_client/csme.jsp</result>
         </action>
         
         <!-- 验证验证码是否正确 -->
@@ -42,7 +44,17 @@
                 <result name="CANCEL">express_mobile_client/error.jsp</result>
         </action>
         
+        <!-- 修改密码 --> 
+        <action name="changepassword" class="hskj.express.client.logic.ChangePasswordAction">
+                <result name="SUCCESS">express_mobile_client/changepasswordserver.jsp</result>
+                <result name="ERROR">express_mobile_client/error.jsp</result>
+        </action>
         
+        <!-- 账号登陆 -->
+        <action name="loginbypwd" class="hskj.express.client.logic.CodeLoginAction">
+                <result name="SUCCESS">express_mobile_client/loginserver.jsp</result>
+                <result name="ERROR">express_mobile_client/error.jsp</result>
+        </action>
     </package>
  
 

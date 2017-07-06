@@ -34,8 +34,7 @@ public class ChangePersonMessageAction {
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
-
-
+    
 	public String execute() throws Exception{
     	 try{
     		 

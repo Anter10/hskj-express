@@ -1,7 +1,39 @@
 package hskj.express.client.logic;
 
 public class MobileClientData {
-    
+//  修改密码的类型
+	public static enum ChangePwdType{
+		FirstSetPwd("101","首次注册设置密码");
+		
+		private String changetype = "";
+		private String changeinfo = "";
+		
+		
+		public String getChangetype() {
+			return changetype;
+		}
+
+
+		public void setChangetype(String changetype) {
+			this.changetype = changetype;
+		}
+
+
+		public String getChangeinfo() {
+			return changeinfo;
+		}
+
+
+		public void setChangeinfo(String changeinfo) {
+			this.changeinfo = changeinfo;
+		}
+
+
+		private ChangePwdType(String changetype, String changeinfo){
+			this.changetype = changetype;
+			this.changeinfo = changeinfo;
+		}
+	}
 	
 //	验证码类型
 	public static enum PhoneEmailCodeType {
@@ -91,15 +123,31 @@ public static enum SearchMessageType{
 
 // 更改个人信息类型
 public static enum ChangePersonMessage{
-    Name("101","姓名"),Phone("102","手机号"),Email("103","邮箱地址"),Address("104","家庭住址"),Sex("105","性别"),Age("106","年龄");
+    Name("101","姓名","uname"),Phone("102","手机号","uphone"),Email("103","邮箱地址","uemail"),Address("104","家庭住址","uaddress"),Sex("105","性别","usex"),Age("106","年龄","uage");
 
 	private String changeType    = "";
-	private String changeInfo    = "";
-
-	ChangePersonMessage(String _changeType, String _changeInfo){
+	private String changeInfo    = "";  
+	private String changeworld   = "";
+	
+	ChangePersonMessage(String _changeType, String _changeInfo, String _changeworld){
          changeType = _changeType;
          changeInfo = _changeInfo;
+         changeworld = _changeworld;
 	}
+	
+	
+
+	public String getChangeworld() {
+		return changeworld;
+	}
+
+
+
+	public void setChangeworld(String changeworld) {
+		this.changeworld = changeworld;
+	}
+
+
 
 	public String getChangeType() {
 		return changeType;
@@ -114,13 +162,30 @@ public static enum ChangePersonMessage{
 		this.changeInfo = changeInfo;
 	}
 	
+    public static String getChangWorld(String changetype){
+    	String gworld = "";
+    	if(changetype.equals(MobileClientData.ChangePersonMessage.Name.getChangeType())){
+    		gworld = MobileClientData.ChangePersonMessage.Name.getChangeworld();
+    	}else if(changetype.equals(MobileClientData.ChangePersonMessage.Phone.getChangeType())){
+    		gworld = MobileClientData.ChangePersonMessage.Phone.getChangeworld();
+    	}else if(changetype.equals(MobileClientData.ChangePersonMessage.Email.getChangeType())){
+    		gworld = MobileClientData.ChangePersonMessage.Email.getChangeworld();
+    	}else if(changetype.equals(MobileClientData.ChangePersonMessage.Address.getChangeType())){
+    		gworld = MobileClientData.ChangePersonMessage.Address.getChangeworld();
+    	}else if(changetype.equals(MobileClientData.ChangePersonMessage.Sex.getChangeType())){
+    		gworld = MobileClientData.ChangePersonMessage.Sex.getChangeworld();
+    	}else if(changetype.equals(MobileClientData.ChangePersonMessage.Age.getChangeType())){
+    		gworld = MobileClientData.ChangePersonMessage.Age.getChangeworld();
+    	}
+    	return gworld;
+    }
 	
 }
 	
 
 // 登陆类型
 public static enum LoginType{
-	   PWDLogin("1","密码登陆") ,CODELogin("2", "手机验证码登陆");
+	   PWDLogin("101","密码登陆") ,CODELogin("102", "手机验证码登陆");
 	   
 	   private String logintype;
 	   private String info;

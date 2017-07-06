@@ -1,8 +1,8 @@
 package hskj.express.client.logic;
 import Parameter.*;
 public class CodeLoginAction {
-    String id = "";     // 电话号码
-    String pwd  = "";  // 验证码
+    String id = "";          // 电话号码
+    String pwd  = "";        // 验证码
     String logintype = "0";  // 登陆类型
     
     
@@ -32,9 +32,8 @@ public class CodeLoginAction {
 		id    = getId();
 		pwd  = getPwd();
 		try{
-			 if(pwd.isEmpty() == false && id.isEmpty() == false){
+			 if(pwd.isEmpty() == false && id.isEmpty() == false && getLogintype().isEmpty() == false){
 				 System.out.print("id "+id);
-				 
 				 return "SUCCESS";
 			 }else{
 				 return "ERROR";
