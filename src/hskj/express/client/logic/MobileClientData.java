@@ -1,7 +1,29 @@
 package hskj.express.client.logic;
 
 public class MobileClientData {
-	
+    //订单类型
+	public static enum OrderType{
+		HasStartOrder("1","开始的订单"),FinishOrder("2","完成的订单"),NoStartOrder("0","还未开始的订单");
+		
+		private String info = "";
+		private String type = "";
+		public String getInfo() {
+			return info;
+		}
+		public void setInfo(String info) {
+			this.info = info;
+		}
+		public String getType() {
+			return type;
+		}
+		public void setType(String type) {
+			this.type = type;
+		}
+		private OrderType(String type, String _info){
+			this.type = type;
+			this.info = _info;
+		}
+	}
     //表的数据名称
 	public static enum EXPTableType{
 		OrderTable("101","订单表","express_order"),

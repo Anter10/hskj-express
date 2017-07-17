@@ -105,6 +105,12 @@
                 <result name="ERROR">express_mobile_client/error.jsp</result>
         </action>
         
+        <!-- 不同类型订单查询 -->
+        <action name="selecttypeorderaction" class="hskj.express.client.logic.SelectTypeOrderAction">
+                <result name="SUCCESS">express_mobile_client/selectordertypeserver.jsp</result>
+                <result name="ERROR">express_mobile_client/error.jsp</result>
+        </action>
+        
         
     </package>
  
