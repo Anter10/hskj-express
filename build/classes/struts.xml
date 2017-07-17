@@ -55,6 +55,57 @@
                 <result name="SUCCESS">express_mobile_client/loginserver.jsp</result>
                 <result name="ERROR">express_mobile_client/error.jsp</result>
         </action>
+        
+        <!-- 添加联系人 --> 
+        <action name="addreceiveperson" class="hskj.express.client.logic.AddReveivePerson">
+                <result name="SUCCESS">express_mobile_client/addreceivepersonserver.jsp</result>
+                <result name="ERROR">express_mobile_client/error.jsp</result>
+        </action>
+        
+        <!-- 添加收件人地址 -->
+        <action name="addreceiveaddress" class="hskj.express.client.logic.AddReveiveAddress">
+                <result name="SUCCESS">express_mobile_client/addreceiveaddressserver.jsp</result>
+                <result name="ERROR">express_mobile_client/error.jsp</result>
+        </action>
+        
+        
+          <!-- 发送表中的数据 -->
+        <action name="sendalldataaction" class="hskj.express.client.logic.SendAllDataAction">
+                <result name="SUCCESS">express_mobile_client/sendalldataserver.jsp</result>
+                <result name="ERROR">express_mobile_client/error.jsp</result>
+        </action>
+        
+        <!-- 删除数据操作 -->
+        <action name="deleteactionaction" class="hskj.express.client.logic.DeleteDataAction">
+                <result name="SUCCESS">express_mobile_client/deletedataserver.jsp</result>
+                <result name="ERROR">express_mobile_client/error.jsp</result>
+        </action>
+        
+          <!-- 得到关于农村速递 -->
+        <action name="aboutncsd" class="hskj.express.client.logic.AboutNcsdExpress">
+                <result name="ABOUT">express_mobile_client/aboutncsd.jsp</result>
+                <result name="CANCEL">express_mobile_client/error.jsp</result>
+        </action>
+        
+        <!-- 身份证验证 -->
+        <action name="veriidcard" class="hskj.express.client.logic.VeriIdCard">
+                <result name="SUCCESS">express_mobile_client/veriidcard.jsp</result>
+                <result name="ERROR">express_mobile_client/error.jsp</result>
+        </action>
+        
+        <!-- 提交快递信息 -->
+        <action name="senditemrequestaction" class="hskj.express.client.logic.SendItemRequestAction">
+                <result name="SUCCESS">express_mobile_client/dealsenditemrequest.jsp</result>
+                <result name="ERROR">express_mobile_client/error.jsp</result>
+        </action>
+        
+        <!-- 订单查询 -->
+        <action name="selectorderaction" class="hskj.express.client.logic.SelectOrderAction">
+                <result name="SUCCESS">express_mobile_client/selectorderaction.jsp</result>
+                <result name="ERROR">express_mobile_client/error.jsp</result>
+        </action>
+        
+        
     </package>
  
 

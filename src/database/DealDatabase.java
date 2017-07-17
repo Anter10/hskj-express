@@ -3,7 +3,7 @@ import java.sql.*;
 import org.json.*;
 import org.postgresql.jdbc.PgStatement;
 
-import com.mysql.jdbc.ResultSetMetaData;
+ 
 import java.sql.Statement;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -128,7 +128,7 @@ public class DealDatabase {
 		}
 	  	   ResultSet rs = stmt1.executeQuery(sql);
 	  	    
-	  	   ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
+	  	   ResultSetMetaData rsmd =  rs.getMetaData();
 	  	   String tbname = rsmd.getTableName(1);
 //	  	   System.out.print("biaoming "+tbname);
 	  	   int colum = rsmd.getColumnCount();
@@ -159,7 +159,7 @@ public class DealDatabase {
 	}
   	   ResultSet rs = stmt1.executeQuery(sql);
   	    
-  	   ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
+  	   ResultSetMetaData rsmd =  rs.getMetaData();
   	   String tbname = rsmd.getTableName(1);
 //  	   System.out.print("biaoming "+tbname);
   	   int colum = rsmd.getColumnCount();
@@ -242,7 +242,7 @@ public class DealDatabase {
 		}
 	  	   ResultSet rs = stmt1.executeQuery(sql);
 	  	 
-	  	   ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
+	  	   ResultSetMetaData rsmd = rs.getMetaData();
 	  	   String tbname = rsmd.getTableName(1);
 //	  	   System.out.print("biaoming "+tbname);
 	  	   int colum = rsmd.getColumnCount();
@@ -358,7 +358,7 @@ public class DealDatabase {
 		}
 	  	   ResultSet rs = stmt1.executeQuery(sql);
 	  	 
-	 	   ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
+	 	   ResultSetMetaData rsmd = rs.getMetaData();
 	  	   String tbname = rsmd.getTableName(1);
 //	  	   System.out.print("biaoming "+tbname);
 	  	   int colum = rsmd.getColumnCount();

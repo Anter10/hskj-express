@@ -1,6 +1,73 @@
 package hskj.express.client.logic;
 
 public class MobileClientData {
+	
+    //表的数据名称
+	public static enum EXPTableType{
+		OrderTable("101","订单表","express_order"),
+		FinishOrderTable("102","已完成的订单表","express_finish_order"),
+		WillFinishOrderTable("103","未开始的订单表","will_finish_express_order"),
+		ReceiveAddressTable("104","收件地址表","express_receive_address"),
+		ReceivePersonTable("105","收件人表","express_receive_person"),
+		ActivityTable("106","活动表","express_activitys"),
+		VeriIdCard("107","活动表","express_veri_idcard")
+		;
+		
+		private String id   = "";
+		private String info = "";
+		private String name = "";
+	    
+		
+		
+		public String getInfo() {
+			return info;
+		}
+
+		public void setInfo(String info) {
+			this.info = info;
+		}
+
+		private EXPTableType(String _id, String _info ,String _name){
+			this.id   = _id;
+			this.info = _info;
+			this.name = _name;
+		}
+		
+		public String getId() {
+			return id;
+		}
+
+		public void setId(String id) {
+			this.id = id;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public static String getTableName(String tbid){
+			String tablename = null;
+			if (tbid.equals(MobileClientData.EXPTableType.OrderTable.getId()) == true){
+				tablename = MobileClientData.EXPTableType.OrderTable.getName();
+			}else if (tbid.equals(MobileClientData.EXPTableType.FinishOrderTable.getId()) == true){
+				tablename = MobileClientData.EXPTableType.FinishOrderTable.getName();
+			}else if (tbid.equals(MobileClientData.EXPTableType.WillFinishOrderTable.getId()) == true){
+				tablename = MobileClientData.EXPTableType.WillFinishOrderTable.getName();
+			}else if (tbid.equals(MobileClientData.EXPTableType.ReceiveAddressTable.getId()) == true){
+				tablename = MobileClientData.EXPTableType.ReceiveAddressTable.getName();
+			}else if (tbid.equals(MobileClientData.EXPTableType.ReceivePersonTable.getId()) == true){
+				tablename = MobileClientData.EXPTableType.ReceivePersonTable.getName();
+			}else if (tbid.equals(MobileClientData.EXPTableType.VeriIdCard.getId()) == true){
+				tablename = MobileClientData.EXPTableType.VeriIdCard.getName();
+			}
+			return tablename;
+		}
+	}
+	
 //  修改密码的类型
 	public static enum ChangePwdType{
 		FirstSetPwd("101","首次注册设置密码");

@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>操作失败</title>
+<title>Insert title here</title>
 </head>
 <body>
-没有你想要的信息
+
 </body>
 </html>
