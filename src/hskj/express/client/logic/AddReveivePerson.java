@@ -1,6 +1,6 @@
 package hskj.express.client.logic;
 
-public class AddReveivePerson {
+public class AddReveivePerson extends SelfAction{
      private String mainid    = ""; // 添加人的ID
      private String name   = ""; // 添加的人的姓名
      private String phone1 = ""; // 电话号码1
@@ -56,7 +56,7 @@ public class AddReveivePerson {
 	public void setPhone2(String phone2) {
 		this.phone2 = phone2;
 	}
-    
+    @Override
     public String execute() throws Exception{
 		try{
 			System.out.println("ddddd = "+getMainid());

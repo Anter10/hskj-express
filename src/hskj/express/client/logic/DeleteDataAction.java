@@ -1,6 +1,6 @@
 package hskj.express.client.logic;
 
-public class DeleteDataAction {
+public class DeleteDataAction extends SelfAction{
     private String mainid = "";
     private String id     = "";
     private String tbid   = "";
@@ -23,7 +23,7 @@ public class DeleteDataAction {
 	public void setId(String id) {
 		this.id = id;
 	}
-    
+    @Override
 	public String execute() throws Exception{
 		try{
 			 if(getMainid().isEmpty() == false && getId().isEmpty() == false && getTbid().isEmpty() == false){

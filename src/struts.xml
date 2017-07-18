@@ -111,7 +111,11 @@
                 <result name="ERROR">express_mobile_client/error.jsp</result>
         </action>
         
-        
+        <!-- 晴空不同状态的订单 -->
+        <action name="clearorderbyorderaction" class="hskj.express.client.logic.ClearOrderByOrderStatueAction">
+                <result name="SUCCESS">express_mobile_client/clearorderbystatue.jsp</result>
+                <result name="ERROR">express_mobile_client/error.jsp</result>
+        </action>
     </package>
  
 

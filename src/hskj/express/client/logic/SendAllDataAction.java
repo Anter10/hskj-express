@@ -1,6 +1,6 @@
 package hskj.express.client.logic;
 
-public class SendAllDataAction {
+public class SendAllDataAction extends SelfAction{
     private String mainid    = "";
     private String tbid      = "";
     

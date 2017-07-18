@@ -26,7 +26,6 @@ public class SelectOrderAction {
 		 }catch(Exception  ex){
 			 return "ERROR"; 
 		 }
-		
 	}
     
 }

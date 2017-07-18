@@ -38,8 +38,10 @@
         	     /* 判断是否接单 */
                  if (obj.getJSONObject(0).getString("orderstatue").equals("-1")){
             	    orderStatue = "寄件人正在赶来的途中,请您稍等...";
-                 }
-         %>   <p>农村速递—快递订单信息</p>
+                 }else if (obj.getJSONObject(0).getString("orderstatue").equals("2")){
+             	    orderStatue = "快递已签收,感谢你的使用...";
+                  }
+         %>   <h3>农村速递—快递订单信息</h3>
               <h4>快递单号:  <%=obj.getJSONObject(0).getString("id") %></h4>
               <h4>查询授权码:  <%=obj.getJSONObject(0).getString("orderpeoid") %></h4>
 	          <h4>寄件人手机号:  <%=obj.getJSONObject(0).getString("send_person_id") %></h4>
@@ -49,7 +51,9 @@
 	          <h4>收件备用手机号:  <%=obj.getJSONObject(0).getString("receivepersonphone2") %></h4>
 	          <h4>提交时间:  <%=obj.getJSONObject(0).getString("get_time") %></h4>
               <h4>订单状态:  <%=orderStatue %></h4>
- 
+              <h3>物流信息</h3>
+              
+               <h4>暂无</h4>
        <%  
               }else{
        %> 

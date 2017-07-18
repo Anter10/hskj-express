@@ -1,6 +1,6 @@
 package hskj.express.client.logic;
 
-public class AddReveiveAddress {
+public class AddReveiveAddress extends SelfAction{
      private String mainid  = ""; // 添加人的ID
      private String mailid  = ""; // 邮政编码
      private String province= ""; // 省
@@ -85,7 +85,7 @@ public class AddReveiveAddress {
 	}
 
 
-
+    @Override
 	public String execute() throws Exception{
 		try{
 			 if(this.getMailid().isEmpty() == false && this.getMainid().isEmpty() == false && this.getProvince().isEmpty() == false && this.getCity().isEmpty() == false && this.getControy().isEmpty() == false  && this.getDetail().isEmpty() == false ){

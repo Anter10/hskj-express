@@ -1,6 +1,6 @@
 package hskj.express.client.logic;
 
-public class SelectTypeOrderAction {
+public class SelectTypeOrderAction extends SelfAction{
         private String orderType = ""; //订单类型
         private String mainid    = ""; //寄件人账号
 		public String getOrderType() {

@@ -1,6 +1,6 @@
 package hskj.express.client.logic;
 
-public class VeriIdCard {
+public class VeriIdCard extends SelfAction{
 	private String uid    = "";
 	private String idcard = "";
 	private String idname = "";
@@ -35,7 +35,7 @@ public class VeriIdCard {
 		this.idname = idname;
 	}
 
-
+    @Override
 	public String execute() throws Exception{
 		 
 		try{

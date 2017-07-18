@@ -17,9 +17,11 @@
     if (logintype.equals(MobileClientData.LoginType.PWDLogin.getLogintype())){
     	String id = request.getAttribute("id").toString();
     	String pwd = request.getAttribute("pwd").toString(); 
-    	
+    	String securecode  =  session.getId();
     	String loginsql = "select * from express_user where uphone = "+ id + " and upassword = "+ pwd;
-    	System.out.print("登陆的账号 = "+id+"登陆密码  = "+pwd + "  " + loginsql);
+    	System.out.print(securecode+ "登陆的账号 = "+id+"登陆密码  = "+pwd + "  " + loginsql);
+    	String setSql = "update express_user set securecode = " + "'" + securecode + "'" + " where uphone = "+ id;
+    	DealDatabase.executeSQL(setSql);
     	String data     = DealDatabase.getQuerryJsonStringData(loginsql);
     	Param.sendData(data, response.getWriter());
     }else if(logintype.equals(MobileClientData.LoginType.CODELogin.getLogintype())){

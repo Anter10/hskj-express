@@ -21,6 +21,7 @@
   /* 电话2 */
   String detail = request.getAttribute("detail").toString();
   String mailid =   request.getAttribute("mailid").toString();  
+  
   String insertsql = "insert into express_receive_address(mailid,mainid, province,city, controy, detail) values(" + "'"+ mailid+ "'" + "," + "'"+ mainid+ "'" + "," + "'"+ province+ "'" + "," + "'"+ city+ "'" + ","+ "'" + controy + "'"+ ","+ "'" + detail + "'"+")";
   System.out.print("修改的信息 " +insertsql);
   DealDatabase.executeSQL(insertsql);

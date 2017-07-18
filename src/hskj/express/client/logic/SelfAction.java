@@ -1,14 +1,8 @@
 package hskj.express.client.logic;
- 
 
-import Parameter.Param;
+import com.opensymphony.xwork2.ActionSupport;
 
-public class AboutNcsdExpress extends SelfAction {
-	
-	 /**
-	 * 
-	 */
-	
+public class SelfAction extends ActionSupport {
     public String securecode = "";
 
 	public String getSecurecode() {
@@ -19,16 +13,25 @@ public class AboutNcsdExpress extends SelfAction {
 		this.securecode = securecode;
 	}
 	
-	private static final long serialVersionUID = 1L;
-    
+	public SelfAction(){
+		 
+	 
+	}
+	
+	@Override 
+	public void validate(){
+		
+	}
+	
 	@Override 
 	 public String execute() throws Exception{
-		
 		try{
-			
+			System.out.println("安全码 - "+ this.getSecurecode());
 			 return "ABOUT";
 		 }catch(Exception  ex){
 			 return "CANCEL";
 		 }
 	}
+	
+    
 }

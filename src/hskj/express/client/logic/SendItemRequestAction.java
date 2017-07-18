@@ -1,6 +1,6 @@
 package hskj.express.client.logic;
 
-public class SendItemRequestAction {
+public class SendItemRequestAction extends SelfAction{
 	private String receive_person_id = "";
 	private String receive_where_id  = "";
 	private String send_person_id    = "";
@@ -66,9 +66,10 @@ public class SendItemRequestAction {
 	public void setSend_person_where(String send_person_where) {
 		this.send_person_where = send_person_where;
 	}
-	
+	@Override
     public String execute() throws Exception{
 		try{
+			
 			 if(getReceive_person_id().isEmpty() == false && getReceive_where_id().isEmpty() == false && getSend_person_id().isEmpty() == false && getSend_person_where().isEmpty() == false){
 				return "SUCCESS";
 			 }else{

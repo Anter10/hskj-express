@@ -1,6 +1,6 @@
 package hskj.express.client.logic;
 
-public class ChangePasswordAction {
+public class ChangePasswordAction extends SelfAction{
     private String changetype = "";
     private String changeid   = "";
     private String changepwd  = "";
@@ -35,7 +35,7 @@ public class ChangePasswordAction {
 		this.changepwd = changepwd;
 	}
 
-
+     @Override
      public String execute() throws Exception{
 		 
 		try{

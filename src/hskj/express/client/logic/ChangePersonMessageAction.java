@@ -1,6 +1,6 @@
 package hskj.express.client.logic;
 
-public class ChangePersonMessageAction {
+public class ChangePersonMessageAction extends SelfAction{
      private String changetype = "";
      private String msgs = "";
      private String userid = "";
@@ -35,6 +35,7 @@ public class ChangePersonMessageAction {
 		this.userid = userid;
 	}
     
+	@Override
 	public String execute() throws Exception{
     	 try{
     		 
