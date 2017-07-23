@@ -23,6 +23,11 @@
     	String setSql = "update express_user set securecode = " + "'" + securecode + "'" + " where uphone = "+ id;
     	DealDatabase.executeSQL(setSql);
     	String data     = DealDatabase.getQuerryJsonStringData(loginsql);
+    	UserData ud = new UserData();
+    	ud.setLinkroleid(id);
+    	ud.setSecurecode(securecode);
+    	UserCenterData.getUCD().addNewUser(ud);
+    	
     	Param.sendData(data, response.getWriter());
     }else if(logintype.equals(MobileClientData.LoginType.CODELogin.getLogintype())){
     	String id = request.getAttribute("id").toString(); 

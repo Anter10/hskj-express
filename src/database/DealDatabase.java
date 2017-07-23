@@ -2,9 +2,7 @@ package database;
 import java.sql.*; 
 import org.json.*;
 import org.postgresql.jdbc.PgStatement;
-
  
-import java.sql.Statement;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -108,6 +106,47 @@ public class DealDatabase {
  
 	}
 	
+	public static JSONArray getDescrible(String sql,String zdname) throws SQLException, JSONException{
+		 Statement stmt1 = null;
+			try {
+				try {
+					stmt1 = (Statement) DB.getInstance().getStamt();
+				} catch (InstantiationException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IllegalAccessException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} catch (NamingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		  	   ResultSet rs = stmt1.executeQuery(sql);
+		  	   System.out.print("biaomingdd ");
+		  	   ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
+		  	   String tbname = rsmd.getTableName(1);
+		  	  
+		  	   int colum = rsmd.getColumnCount();
+		  	   String [] labelName = new String[colum];
+		  	
+		  	   for(int index = 0; index < colum; index ++){
+		  		 labelName[index] = rsmd.getColumnName(index +1);
+		  	   }
+		  	 
+		  	   JSONArray ta = new JSONArray();
+		       int index = 0;
+		       
+		       JSONArray appts  = new JSONArray();
+		       while(rs.next()){
+		    	   String name = zdname;
+		    	   String fstr = rs.getString(name);
+		    	   appts.put(fstr);
+		                  	
+		       }
+		      return appts;
+	}
+	
 	// 得到某个数据表的所有标签
 	public static String[] getTableProNames(String tableName) throws SQLException{
 		   String sql = "select * from "+tableName;
@@ -140,86 +179,85 @@ public class DealDatabase {
 	  	   return labelName;
 	}
 	
-    //	得到ResultSet查询结果
 	public static String getQuerryJsonStringData(String sql) throws SQLException, JSONException{
-	   Statement stmt1 = null;
-	try {
+		   Statement stmt1 = null;
 		try {
-			stmt1 = (Statement) DB.getInstance().getStamt();
-		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalAccessException e) {
+			try {
+				stmt1 = (Statement) DB.getInstance().getStamt();
+			} catch (InstantiationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	} catch (NamingException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-  	   ResultSet rs = stmt1.executeQuery(sql);
-  	    
-  	   ResultSetMetaData rsmd =  rs.getMetaData();
-  	   String tbname = rsmd.getTableName(1);
-//  	   System.out.print("biaoming "+tbname);
-  	   int colum = rsmd.getColumnCount();
-  	   String [] labelName = new String[colum];
-  	
-  	   for(int index = 0; index < colum; index ++){
-  		 labelName[index] = rsmd.getColumnName(index +1);
-  	   }
-  	 
-  	   JSONArray ta = new JSONArray();
-       int index = 0;
-       while(rs.next()){
-    	   
-      	   JSONObject appts  = new JSONObject();
-       	   for(int ji = 1; ji <= colum; ji ++){
-       		  String name = rsmd.getColumnName(ji);
-       		  int type = rsmd.getColumnType(ji);
-       		  if(type == Param.DOUBLE){
-       			 appts.put(name, rs.getDouble(name));
-       		  }else if(type == Param.INT){
-       			 appts.put(name, rs.getInt(name));
-       		  }else if(type == Param.FLOAT){
-        		 appts.put(name, rs.getFloat(name));
-        	  }else{
-//        		 String ts = new String(rs.getString(name),"UTF-8");
-        		 // 去掉特殊的符号
-        		 String fstr = rs.getString(name);
-         		 if (fstr != null){
-         			String gtfstr = fstr;
-	       			for(int indexs = 0; indexs < Param.allspstr.length; indexs ++){
-	         		 	gtfstr = gtfstr.replaceAll(Param.allspstr[indexs], ""); 
-	         		 	appts.put(name,gtfstr);
-	       			}
-         		 }
-        		 
-        		 
-       		  }
-       		  
-       	   }
-          
-       	   ta.put(index, appts);
-           index = index + 1;              	
-       } 
-       JSONObject sendobj = new JSONObject();
-  
-       sendobj.put("ps", ta);
-       sendobj.put("lb",labelName);
-       
-       if (index == 0){
-    	   return null;
-       }
-       int tindex = 0;
- 
-       String str = ta.toString();
-       
+	  	   ResultSet rs = stmt1.executeQuery(sql);
+	  	    
+	  	   ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
+	  	   String tbname = rsmd.getTableName(1);
+//	  	   System.out.print("biaoming "+tbname);
+	  	   int colum = rsmd.getColumnCount();
+	  	   String [] labelName = new String[colum];
+	  	
+	  	   for(int index = 0; index < colum; index ++){
+	  		 labelName[index] = rsmd.getColumnName(index +1);
+	  	   }
+	  	 
+	  	   JSONArray ta = new JSONArray();
+	       int index = 0;
+	       while(rs.next()){
+	    	   
+	      	   JSONObject appts  = new JSONObject();
+	       	   for(int ji = 1; ji <= colum; ji ++){
+	       		  String name = rsmd.getColumnName(ji);
+	       		  int type = rsmd.getColumnType(ji);
+	       		  if(type == Param.DOUBLE){
+	       			 appts.put(name, rs.getDouble(name));
+	       		  }else if(type == Param.INT){
+	       			 appts.put(name, rs.getInt(name));
+	       		  }else if(type == Param.FLOAT){
+	        		 appts.put(name, rs.getFloat(name));
+	        	  }else{
+//	        		 String ts = new String(rs.getString(name),"UTF-8");
+	        		 // 去掉特殊的符号
+	        		 String fstr = rs.getString(name);
+	         		 if (fstr != null){
+	         			String gtfstr = fstr;
+		       			for(int indexs = 0; indexs < Param.allspstr.length; indexs ++){
+		         		 	gtfstr = gtfstr.replaceAll(Param.allspstr[indexs], ""); 
+		         		 	appts.put(name,gtfstr);
+		       			}
+	         		 }
+	        		 
+	        		 
+	       		  }
+	       		  
+	       	   }
+	          
+	       	   ta.put(index, appts);
+	           index = index + 1;              	
+	       } 
+	       JSONObject sendobj = new JSONObject();
+	  
+	       sendobj.put("ps", ta);
+	       sendobj.put("lb",labelName);
+	       
+	       if (index == 0){
+	    	   return null;
+	       }
+	       int tindex = 0;
+	 
+	       String str = sendobj.toString();
+	       
 
-  	   return str;
-  	   
-  	   
-	}
+	  	   return ta.toString();
+	  	   
+	  	   
+		}
 	
 	 
 	

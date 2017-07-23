@@ -4,6 +4,15 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class SelfAction extends ActionSupport {
     public String securecode = "";
+    public String linkroleid = "";
+    
+	public String getLinkroleid() {
+		return linkroleid;
+	}
+
+	public void setLinkroleid(String linkroleid) {
+		this.linkroleid = linkroleid;
+	}
 
 	public String getSecurecode() {
 		return securecode;
@@ -17,6 +26,15 @@ public class SelfAction extends ActionSupport {
 		 
 	 
 	}
+	
+	public boolean issecure(){
+		System.out.print("安全码 = "+this.getSecurecode()+ "  关联ID = "+this.getLinkroleid());
+		if (this.getSecurecode().isEmpty() == false && this.getLinkroleid().isEmpty() == false){
+			return true;
+		}
+		return false;
+	}
+	
 	
 	@Override 
 	public void validate(){
