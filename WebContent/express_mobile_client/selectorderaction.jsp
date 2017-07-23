@@ -29,7 +29,7 @@
            }
            String objstr            = DealDatabase.getQuerryJsonStringData(selectOrderSql);
            System.out.print("查询的订单信息  = "+objstr);
-          
+           
            
            if(objstr != null  && objstr.isEmpty() == false ){
         	  JSONArray obj           = new JSONArray(objstr);
@@ -52,8 +52,7 @@
 	          <h4>提交时间:  <%=obj.getJSONObject(0).getString("get_time") %></h4>
               <h4>订单状态:  <%=orderStatue %></h4>
               <h3>物流信息</h3>
-              
-               <h4>暂无</h4>
+              <h4><a href="http://games.heisekeji.net">查看物流</a></h4>
        <%  
               }else{
        %> 

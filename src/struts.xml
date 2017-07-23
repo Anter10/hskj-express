@@ -116,6 +116,19 @@
                 <result name="SUCCESS">express_mobile_client/clearorderbystatue.jsp</result>
                 <result name="ERROR">express_mobile_client/error.jsp</result>
         </action>
+        
+        <!-- 更新收件地址信息 -->
+        <action name="updatereceiveaddressaction" class="hskj.express.client.logic.UpdateReceiveAddressAction">
+                <result name="SUCCESS">express_mobile_client/clearorderbystatue.jsp</result>
+                <result name="ERROR">express_mobile_client/error.jsp</result>
+        </action>
+        
+         <!-- 更新收件人信息 -->
+        <action name="updatereceivepersonaction" class="hskj.express.client.logic.UpdateReceivePersonAction">
+                <result name="SUCCESS">express_mobile_client/clearorderbystatue.jsp</result>
+                <result name="ERROR">express_mobile_client/error.jsp</result>
+        </action>
+ 
     </package>
  
 
