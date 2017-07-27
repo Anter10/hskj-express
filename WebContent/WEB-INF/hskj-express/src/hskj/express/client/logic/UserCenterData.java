@@ -1,7 +1,7 @@
 package hskj.express.client.logic;
 
 import java.util.*;
-import org.apache.http.client.HttpClient;
+
 public class UserCenterData {
      HashMap <String , UserData> users = new HashMap<String , UserData>();
      private static UserCenterData ucd = new UserCenterData();

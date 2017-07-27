@@ -1,7 +1,5 @@
 package Parameter;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.util.EntityUtils;
 import org.json.*;
 import java.io.IOException;  
 
@@ -12,11 +10,11 @@ import java.io.*;
 import javax.mail.*;
 import java.util.*;
 import javax.mail.internet.*;
-
+import java.util.Calendar;  
+import java.util.Date; 
 import java.net.*;
 import java.text.SimpleDateFormat;
 
-import com.aliyun.api.gateway.demo.util.HttpUtils;
 import com.aliyun.mns.client.CloudAccount;
 import com.aliyun.mns.client.CloudTopic;
 import com.aliyun.mns.client.MNSClient;
@@ -133,108 +131,6 @@ public class Param {
 			"101701","101801","101901","102001","160101","160201","160301","160401","160501","160601","160701","160801","160901","161001","180101","191001",
 			"192001","193001"
   };
-  
-  
-  public static String getCard(String idcard) {
-	    String host = "http://idinfo.market.alicloudapi.com";
-	    String path = "/getIDcard";
-	    String method = "GET";
-	    String appcode = "e5110f684dd14b95a2a0a0f572475e39";
-	    Map<String, String> headers = new HashMap<String, String>();
-	    //最后在header中的格式(中间是英文空格)为Authorization:APPCODE 83359fd73fe94948385f570e3c139105
-	    headers.put("Authorization", "APPCODE " + appcode);
-	    Map<String, String> querys = new HashMap<String, String>();
-	    querys.put("ID", idcard);
-	    System.out.println(idcard.toString());
-
-	    try {
-	    	/**
-	    	* 重要提示如下:
-	    	* HttpUtils请从
-	    	* https://github.com/aliyun/api-gateway-demo-sign-java/blob/master/src/main/java/com/aliyun/api/gateway/demo/util/HttpUtils.java
-	    	* 下载
-	    	*
-	    	* 相应的依赖请参照
-	    	* https://github.com/aliyun/api-gateway-demo-sign-java/blob/master/pom.xml
-	    	*/
-	    	HttpResponse response = (HttpResponse) HttpUtils.doGet(host, path, method, headers, querys);
-	    	System.out.println(EntityUtils.toString(response.getEntity()));
-	    	return response.toString();
-	    	//获取response的body
-	    	//System.out.println(EntityUtils.toString(response.getEntity()));
-	    } catch (Exception e) {
-	    	e.printStackTrace();
-	    }
-	    return null;
-	}
-  
-  public static String getCard(String idcard, String name) {
-	   String host = "http://idcard.market.alicloudapi.com";
-	    String path = "/lianzhuo/idcard";
-	    String method = "GET";
-	    String appcode = "e5110f684dd14b95a2a0a0f572475e39";
-	    Map<String, String> headers = new HashMap<String, String>();
-	    //最后在header中的格式(中间是英文空格)为Authorization:APPCODE 83359fd73fe94948385f570e3c139105
-	    headers.put("Authorization", "APPCODE " + appcode);
-	    Map<String, String> querys = new HashMap<String, String>();
-	    querys.put("cardno", idcard);
-	    querys.put("name", name);
-
-	    System.out.print(name + idcard);
-	    try {
-	    	/**
-	    	* 重要提示如下:
-	    	* HttpUtils请从
-	    	* https://github.com/aliyun/api-gateway-demo-sign-java/blob/master/src/main/java/com/aliyun/api/gateway/demo/util/HttpUtils.java
-	    	* 下载
-	    	*
-	    	* 相应的依赖请参照
-	    	* https://github.com/aliyun/api-gateway-demo-sign-java/blob/master/pom.xml
-	    	*/
-	    	 System.out.print(name + idcard+"end1");
-	    	HttpResponse response = HttpUtils.doGet(host, path, method, headers, querys);
-	    	//System.out.println(response.toString());
-	    	//获取response的body
-	    	 System.out.print(EntityUtils.toString(response.getEntity()));
-	    } catch (Exception e) {
-	    	e.printStackTrace();
-	    }
-	    return null;
-	}
- 
-  
-  public static String getRelayCard(String idcard, String name) {
-	  String host = "http://1.api.apistore.cn";
-	    String path = "/idcard";
-	    String method = "GET";
-	    String appcode = "e5110f684dd14b95a2a0a0f572475e39";
-	    Map<String, String> headers = new HashMap<String, String>();
-	    //最后在header中的格式(中间是英文空格)为Authorization:APPCODE 83359fd73fe94948385f570e3c139105
-	    headers.put("Authorization", "APPCODE " + appcode);
-	    Map<String, String> querys = new HashMap<String, String>();
-	    querys.put("cardNo", idcard);
-	    querys.put("realName", name);
-
-
-	    try {
-	    	/**
-	    	* 重要提示如下:
-	    	* HttpUtils请从
-	    	* https://github.com/aliyun/api-gateway-demo-sign-java/blob/master/src/main/java/com/aliyun/api/gateway/demo/util/HttpUtils.java
-	    	* 下载
-	    	*
-	    	* 相应的依赖请参照
-	    	* https://github.com/aliyun/api-gateway-demo-sign-java/blob/master/pom.xml
-	    	*/
-	    	HttpResponse response = HttpUtils.doGet(host, path, method, headers, querys);
-	    	System.out.println(response.toString());
-	    	//获取response的body
-	    	 System.out.println(EntityUtils.toString(response.getEntity()));
-	    } catch (Exception e) {
-	    	e.printStackTrace();
-	    }
-	    return null;
-	}
 
 
   

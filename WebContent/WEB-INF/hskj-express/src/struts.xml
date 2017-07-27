@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<!-- START SNIPPET: xworkSample -->
+<struts>
+
+    <constant name ="struts.devMode" value="false" />
+    
+    <package name="default" extends="struts-default">
+        <interceptors>
+            <interceptor-stack name="crudStack">
+                 <interceptor-ref name="defaultStack" />
+            </interceptor-stack>
+        </interceptors>
+       
+       
+        
+        <!-- 通过邮箱 或者手机号得到验证码 -->
+        <action name="getcode" class="hskj.express.client.logic.SendCodeAction">
+                <result name="PHONE">express_mobile_client/sendphonecodeserver.jsp</result>
+                <result name="EMAIL">express_mobile_client/sendemailcodeserver.jsp</result>
+                <result name="NPE">express_mobile_client/phoneoremailisnotvail.jsp</result>
+                <result name="PEEMPTY">express_mobile_client/phoneoremailisempty.jsp</result>
+        </action>
+        
+        <!-- 请求APP显示数据 -->
+        <action name="getappshow" class="hskj.express.client.logic.ShowAppDics">
+                <result name="OK">express_mobile_client/showapps.jsp</result>
+                <result name="CANCEL">express_mobile_client/csme.jsp</result>
+        </action>
+        
+        <!-- 修改用户信息 -->
+        <action name="changepersonmessage" class="hskj.express.client.logic.ChangePersonMessageAction">
+                <result name="SUCCESS">express_mobile_client/changepersonserver.jsp</result>
+                <result name="ERROR">express_mobile_client/csme.jsp</result>
+        </action>
+        
+        <!-- 验证验证码是否正确 -->
+         <action name="vailphoneoremailcode" class="hskj.express.client.logic.VerailCodeAction">
+                <result name="OK">express_mobile_client/veriphoneoremailandcodetypeserver.jsp</result>
+                <result name="CANCEL">express_mobile_client/error.jsp</result>
+        </action>
+        
+        <!-- 修改密码 --> 
+        <action name="changepassword" class="hskj.express.client.logic.ChangePasswordAction">
+                <result name="SUCCESS">express_mobile_client/changepasswordserver.jsp</result>
+                <result name="ERROR">express_mobile_client/error.jsp</result>
+        </action>
+        
+        <!-- 账号登陆 -->
+        <action name="loginbypwd" class="hskj.express.client.logic.CodeLoginAction">
+                <result name="SUCCESS">express_mobile_client/loginserver.jsp</result>
+                <result name="ERROR">express_mobile_client/error.jsp</result>
+        </action>
+        
+        <!-- 添加联系人 --> 
+        <action name="addreceiveperson" class="hskj.express.client.logic.AddReveivePerson">
+                <result name="SUCCESS">express_mobile_client/addreceivepersonserver.jsp</result>
+                <result name="ERROR">express_mobile_client/error.jsp</result>
+        </action>
+        
+        <!-- 添加收件人地址 -->
+        <action name="addreceiveaddress" class="hskj.express.client.logic.AddReveiveAddress">
+                <result name="SUCCESS">express_mobile_client/addreceiveaddressserver.jsp</result>
+                <result name="ERROR">express_mobile_client/error.jsp</result>
+        </action>
+        
+        
+          <!-- 发送表中的数据 -->
+        <action name="sendalldataaction" class="hskj.express.client.logic.SendAllDataAction">
+                <result name="SUCCESS">express_mobile_client/sendalldataserver.jsp</result>
+                <result name="ERROR">express_mobile_client/error.jsp</result>
+        </action>
+        
+        <!-- 删除数据操作 -->
+        <action name="deleteactionaction" class="hskj.express.client.logic.DeleteDataAction">
+                <result name="SUCCESS">express_mobile_client/deletedataserver.jsp</result>
+                <result name="ERROR">express_mobile_client/error.jsp</result>
+        </action>
+        
+          <!-- 得到关于农村速递 -->
+        <action name="aboutncsd" class="hskj.express.client.logic.AboutNcsdExpress">
+                <result name="ABOUT">express_mobile_client/aboutncsd.jsp</result>
+                <result name="CANCEL">express_mobile_client/error.jsp</result>
+        </action>
+        
+        <!-- 身份证验证 -->
+        <action name="veriidcard" class="hskj.express.client.logic.VeriIdCard">
+                <result name="SUCCESS">express_mobile_client/veriidcard.jsp</result>
+                <result name="ERROR">express_mobile_client/error.jsp</result>
+        </action>
+        
+        <!-- 提交快递信息 -->
+        <action name="senditemrequestaction" class="hskj.express.client.logic.SendItemRequestAction">
+                <result name="SUCCESS">express_mobile_client/dealsenditemrequest.jsp</result>
+                <result name="ERROR">express_mobile_client/error.jsp</result>
+        </action>
+        
+        <!-- 订单查询 -->
+        <action name="selectorderaction" class="hskj.express.client.logic.SelectOrderAction">
+                <result name="SUCCESS">express_mobile_client/selectorderaction.jsp</result>
+                <result name="ERROR">express_mobile_client/error.jsp</result>
+        </action>
+        
+        <!-- 不同类型订单查询 -->
+        <action name="selecttypeorderaction" class="hskj.express.client.logic.SelectTypeOrderAction">
+                <result name="SUCCESS">express_mobile_client/selectordertypeserver.jsp</result>
+                <result name="ERROR">express_mobile_client/error.jsp</result>
+        </action>
+        
+        <!-- 晴空不同状态的订单 -->
+        <action name="clearorderbyorderaction" class="hskj.express.client.logic.ClearOrderByOrderStatueAction">
+                <result name="SUCCESS">express_mobile_client/clearorderbystatue.jsp</result>
+                <result name="ERROR">express_mobile_client/error.jsp</result>
+        </action>
+        
+        <!-- 更新收件地址信息 -->
+        <action name="updatereceiveaddressaction" class="hskj.express.client.logic.UpdateReceiveAddressAction">
+                <result name="SUCCESS">express_mobile_client/updatereceiveaddressserver.jsp</result>
+                <result name="ERROR">express_mobile_client/error.jsp</result>
+        </action>
+        
+         <!-- 更新收件人信息 -->
+        <action name="updatereceivepersonaction" class="hskj.express.client.logic.UpdateReceivePersonAction">
+                <result name="SUCCESS">express_mobile_client/updatereceivepersonserver.jsp</result>
+                <result name="CANCEL">express_mobile_client/error.jsp</result>
+        </action>
+        <!-- 导出表中的模版 -->
+        <action name="gettablemodelaction" class="hskj.express.client.logic.GetTableModelAction">
+                <result name="OK">express_mobile_client/exportjavamodel.jsp</result>
+        </action>
+        <!-- 在线人数 -->
+        <action name="onlinenumber" class="hskj.express.client.logic.GetOnLineNumberAction">
+                <result name="OK">express_mobile_client/onlindeserver.jsp</result>
+        </action>
+ 
+ 
+    </package>
+ 
+
+</struts>
+
+<!-- END SNIPPET: xworkSample -->
+

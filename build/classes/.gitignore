@@ -1,7 +1,3 @@
-/.DS_Store
-/Parameter/
-/database/
-/file/
 /hskj/
-/log4j2.xml
-/struts.xml
+/com/
+/Parameter/
