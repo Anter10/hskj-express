@@ -20,10 +20,10 @@
     	String securecode  =  session.getId();
     	String loginsql = "select * from express_user where uphone = "+ id + " and upassword = "+ pwd;
     	System.out.print(securecode+ "登陆的账号 = "+id+"登陆密码  = "+pwd + "  " + loginsql);
-    	String setSql = "update express_user set securecode = " + "'" + securecode + "'" + " where uphone = "+ id;
-    	DealDatabase.executeSQL(setSql);
+    	String setSql  = "update express_user set securecode = " + "'" + securecode + "'" + " where uphone = "+ id;
+    	DealDatabase.executeSQL(setSql);  
     	String data     = DealDatabase.getQuerryJsonStringData(loginsql);
-    	UserData ud = new UserData();
+    	UserData ud = new UserData(); 
     	ud.setLinkroleid(id);
     	ud.setSecurecode(securecode);
     	UserCenterData.getUCD().addNewUser(ud);

@@ -50,7 +50,7 @@ public class DB{
 			 
 			try {
 				 
-				  ds =(DataSource)ctx.lookup("jdbc/hskj-express"); 
+				  ds =(DataSource)ctx.lookup("jdbc/hskjexpress"); 
 			} catch (NamingException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

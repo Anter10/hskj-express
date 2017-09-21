@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN" 
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+<session-factory>
+<!-- 配置数据库驱动 -->
+<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+<!-- 配置数据库网络连接的url -->
+<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hskjexpress</property>
+<!-- 配置数据库网络连接的用户名，默认一般为 root -->
+<property name="hibernate.connection.username">root</property>
+<!-- 配置数据库网络连接的密码 -->
+<property name="hibernate.connection.password">Abc123456</property>
+<!-- 配置数据库网络连接池的大小 -->
+<property name="hibernate.connection.pool.size">20</property>
+<!-- 后台是否显示SQL，开发时为true，运行时为false -->
+<property name="hibernate.show_sql">true</property>
+<property name="jdbc.fetch_size">50</property>
+<property name="jdbc.batch_size">25</property>
+<property name="jdbc.use_scrollable_resultset">false</property>
+<property name="connection.useUnicode">true</property>
+<!-- 编码方式，最好是gbk，用gb2312有的字符不全 -->
+<property name="connection.characterEncoding">utf-8</property>
+<!-- 数据库方言，每个数据库都有方言，hibernate已经为大多数数据库指明了方言。 -->
+<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+ 
+<!-- Mapping files -->
+<mapping resource="hibernatetestone_01/UserInfo.hbm.xml" />
+
+</session-factory>
+</hibernate-configuration>

@@ -131,13 +131,18 @@
         <!-- 导出表中的模版 -->
         <action name="gettablemodelaction" class="hskj.express.client.logic.GetTableModelAction">
                 <result name="OK">express_mobile_client/exportjavamodel.jsp</result>
+        </action> 
+        <!-- 得到通知的信息 -->
+         <action name="getnotifyaction" class="hskj.express.client.logic.GetNotifyAction">
+                <result name="OK">express_mobile_client/getnotifyserver.jsp</result>
         </action>
-        <!-- 在线人数 -->
-        <action name="onlinenumber" class="hskj.express.client.logic.GetOnLineNumberAction">
-                <result name="OK">express_mobile_client/onlindeserver.jsp</result>
+        <!-- 得到商品分类数据 -->
+        <action name="getshoplistdata" class="hskj.express.client.logic.GetShopListMsg">
+                <result name="SUCCESS">express_mobile_client/GetShopListDataServer.jsp</result>
+                <result name="ERROR">express_mobile_client/error.jsp</result>
         </action>
- 
- 
+        
+        
     </package>
  
 

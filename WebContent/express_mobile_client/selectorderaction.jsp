@@ -23,12 +23,12 @@
            /* 订单查询授权码 */
            String selectpid         = request.getAttribute("selectpid").toString(); // 订单查询授权码
            
-           String selectOrderSql    = "select * from express_will_finish_order where id = " + orderid + " and orderpeoid = " + selectpid;
+           String selectOrderSql    = "select * from express_will_finish_order where id = " + orderid + " and orderpeoid = " + selectpid + " order by get_time DESC";
            if (selectpid.equals("-1")){
-        	   selectOrderSql    = "select * from express_will_finish_order where id = " + orderid; 
+        	   selectOrderSql    = "select * from express_will_finish_order where id = " + orderid + " order by get_time DESC "; 
            }
            String objstr            = DealDatabase.getQuerryJsonStringData(selectOrderSql);
-           System.out.print("查询的订单信息  = "+objstr);
+           System.out.print("查询的订单信息  = "+selectOrderSql);
            
            
            if(objstr != null  && objstr.isEmpty() == false ){

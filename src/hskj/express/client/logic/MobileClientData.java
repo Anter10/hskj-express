@@ -128,8 +128,8 @@ public class MobileClientData {
 	public static enum PhoneEmailCodeType {
 	    LoginCode("登陆验证码","101"),
 	    PhoneRegister("手机号注册验证码","102"),
-    	ChangePassword("修改密码验证码","103");
-    	
+    	ChangePassword("修改密码验证码","103"),
+    	FindPwd("找回密码","104");
     	 
     	 private String codename = "";
     	 private String codetype = "";

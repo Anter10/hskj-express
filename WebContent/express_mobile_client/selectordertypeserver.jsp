@@ -23,7 +23,7 @@
            /* 订单查询授权码 */
            String mainid              = request.getAttribute("mainid").toString(); // 订单查询授权码
            
-           String selectOrderSql      = "select * from express_will_finish_order where send_person_id = " + mainid + " and orderstatue = " + ordertype;
+           String selectOrderSql      = "select * from express_will_finish_order where send_person_id = " + mainid + " and orderstatue = " + ordertype + " order by get_time DESC";
            String objstr              = DealDatabase.getQuerryJsonStringData(selectOrderSql);
            System.out.print("查询的订单信息  = "+selectOrderSql);
            if(objstr != null){

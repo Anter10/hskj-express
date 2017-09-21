@@ -19,7 +19,9 @@
   System.out.print("手机号或者邮箱格式不正确 " + codetype);
   /* 更换密码的验证码 */
   if (codetype.equals(MobileClientData.PhoneEmailCodeType.ChangePassword.getCodetype())){
-     
+  
+  }else if(codetype.equals(MobileClientData.PhoneEmailCodeType.FindPwd.getCodetype())){
+	  
   /* 手机登陆验证码 */
   }else if(codetype.equals(MobileClientData.PhoneEmailCodeType.LoginCode.getCodetype())){
       

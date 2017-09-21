@@ -385,11 +385,11 @@ public class Param {
 	  return obj;
   }
   
-  public static String request(String httpUrl, String httpArg) {
+  public static String request(String name,String cardno) {
       BufferedReader reader = null;
       String result = null;
       StringBuffer sbf = new StringBuffer();
-      httpUrl = httpUrl + "?" + httpArg;
+      String httpUrl = "http://apis.baidu.com/apix/idauth/idauth" + "?" + "name="+name+"cardno="+cardno;
 
       try {
           URL url = new URL(httpUrl);

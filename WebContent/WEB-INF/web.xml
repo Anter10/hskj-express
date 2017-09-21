@@ -35,4 +35,19 @@
     <description>Don't assign users to this role</description>
     <role-name>no-users</role-name>
   </security-role>
+  
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    
+    <servlet>
+        <servlet-name>testserver</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>testserver</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+    
 </web-app>
